@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="AndroidLintSetTextI18n">
+        <ignore path="src/main/java/com/example/charterfood/adapter/OrderViewHolder.kt" />
+    </issue>
+</lint>

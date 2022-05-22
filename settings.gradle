@@ -1,0 +1,2 @@
+rootProject.name = "Charter Food"
+include ':app'
