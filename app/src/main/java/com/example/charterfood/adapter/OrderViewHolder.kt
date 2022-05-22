@@ -3,10 +3,8 @@ package com.example.charterfood.adapter
 import android.annotation.SuppressLint
 import android.text.TextUtils
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.charterfood.CharterFoodApp
 import com.example.charterfood.R
 import com.example.charterfood.data.Order
 import com.example.charterfood.databinding.ItemOrderBinding
