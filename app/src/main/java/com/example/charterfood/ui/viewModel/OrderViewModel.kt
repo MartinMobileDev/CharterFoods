@@ -33,6 +33,7 @@ class OrderViewModel @Inject constructor(private val getOrderUseCase: GetOrderUs
         var sum = 0f
         if (!orderListModel.value.isNullOrEmpty()) {
             orderListModel.value?.forEach {
+                if(it.priceEuro!=null)
                 sum += it.priceEuro?.toFloat()!!
             }
             checkoutSum.postValue(sum.toBigDecimal())

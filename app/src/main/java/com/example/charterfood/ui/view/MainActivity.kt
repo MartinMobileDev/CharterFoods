@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 onItemSelected(order)
             }
         }
-        binding.ordersRv.viewTreeObserver.addOnGlobalLayoutListener {
+            binding.ordersRv.viewTreeObserver.addOnGlobalLayoutListener {
             orderViewModel.sumCheckoutValues()
         }
     }
@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     @SuppressLint("NotifyDataSetChanged")
     fun onItemSelected(order: Order) {
         order.visibility = !order.visibility
-        orderViewModel.sumCheckoutValues()
         binding.ordersRv.adapter?.notifyDataSetChanged()
     }
 
