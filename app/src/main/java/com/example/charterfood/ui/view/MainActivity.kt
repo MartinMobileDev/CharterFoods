@@ -3,6 +3,7 @@ package com.example.charterfood.ui.view
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         initRecyclerView()
         setUpViewModel()
         payAll()
+        tryAgain()
     }
 
     @SuppressLint("SetTextI18n")
@@ -50,7 +52,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 onItemSelected(order)
             }
         }
-            binding.ordersRv.viewTreeObserver.addOnGlobalLayoutListener {
+        binding.ordersRv.viewTreeObserver.addOnGlobalLayoutListener {
             orderViewModel.sumCheckoutValues()
         }
     }
@@ -73,6 +75,35 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             orderViewModel.payAll()
             toast("Thank you for your purchase!!!")
             binding.ordersRv.adapter?.notifyDataSetChanged()
+            hideUI()
+            binding.btnPayAll.visibility = View.INVISIBLE
+            binding.btnTryAgain.visibility = View.VISIBLE
+        }
+    }
+
+    private fun tryAgain() {
+        binding.btnTryAgain.setOnClickListener {
+            orderViewModel.onCreateApi()
+            toast("Hello again!!!")
+            showUI()
+            binding.btnTryAgain.visibility = View.INVISIBLE
+            binding.btnPayAll.visibility = View.VISIBLE
+        }
+    }
+
+    private fun hideUI() {
+        binding.apply {
+            tvTotal.visibility = View.INVISIBLE
+            tvTotalUsd.visibility = View.INVISIBLE
+            tvTotalEur.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun showUI() {
+        binding.apply {
+            tvTotal.visibility = View.VISIBLE
+            tvTotalUsd.visibility = View.VISIBLE
+            tvTotalEur.visibility = View.VISIBLE
         }
     }
 }
