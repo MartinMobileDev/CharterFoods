@@ -12,6 +12,7 @@ import com.example.charterfood.data.Order
 import com.example.charterfood.databinding.ActivityMainBinding
 import com.example.charterfood.ui.viewModel.OrderViewModel
 import com.example.charterfood.utils.Constants.USD_VALUE
+import com.example.charterfood.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 import java.math.RoundingMode
 
@@ -70,6 +71,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     private fun payAll() {
         binding.btnPayAll.setOnClickListener {
             orderViewModel.payAll()
+            toast("Thank you for your purchase!!!")
             binding.ordersRv.adapter?.notifyDataSetChanged()
         }
     }

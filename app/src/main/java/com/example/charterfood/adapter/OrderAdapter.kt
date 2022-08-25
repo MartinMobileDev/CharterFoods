@@ -9,8 +9,7 @@ import com.example.charterfood.data.Order
 class OrderAdapter(
     private var listener: OnClickListener,
     private val orderList: List<Order>,
-    private val onClickListener: (Order) -> Unit
-) : RecyclerView.Adapter<OrderViewHolder>() {
+    private val onClickListener: (Order) -> Unit) : RecyclerView.Adapter<OrderViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
